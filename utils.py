@@ -2,13 +2,13 @@ import os
 import socket
 import sys
 
-import qrcode
+import qrcode # type: ignore
 from PIL import Image
 from sys import platform
 
-from PySide2 import QtWidgets
-from PySide2.QtCore import QBuffer, QIODevice, QPoint, QTimer, QRect, QSize
-from PySide2.QtGui import QImage, QPixmap, Qt
+from PySide2 import QtWidgets # pyright: ignore[reportMissingImports]
+from PySide2.QtCore import QBuffer, QIODevice, QPoint, QTimer, QRect, QSize # type: ignore
+from PySide2.QtGui import QImage, QPixmap, Qt # pyright: ignore[reportMissingImports]
 
 import communication
 from main import PlatformName
@@ -105,7 +105,7 @@ def pil2pixmap(im):
 
 
 def get_current_volume():
-    result = osascript.osascript('get volume settings')
+    result = osascript.osascript('get volume settings') # type: ignore
     volInfo = result[1].split(',')
     output_vol = volInfo[0].replace('output volume:', '')
     return output_vol
